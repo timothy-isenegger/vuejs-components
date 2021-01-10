@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+
+  <div id="app" class="ui container">
+    <h1>Notification Center</h1>
+    
+    <notification-message type="error" header="oh no">
+        <p>This message is shown, so something went wrong!</p>
+    </notification-message>
+
+  </div>
+
+  <!-- Template for Notification Message -->
+  <script type="text/x-template" id="notification-message-template">
+    <div class="ui message" :class="type" v-if="!isHidden">
+        <i class="close icon" @click="hideMessage"></i>
+        <div class="header">
+          {{ header }}
+        </div>
+        <slot></slot>
+      </div>
+  </script>
+
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue"></script>
+
+  <!-- Your JavaScript Code :) -->
+  <script>
+      Vue.component('notification-message', {
+          template: '#notification-message-template',
+          props: {
+              type: {
+                  type: String,
+                  required: true
+              },
+              header: {
+                  type: String
+              }
+          },
+          data() {
+              return {
+                isHidden: false,
+              }
+          },
+          methods: {
+              hideMessage() {
+                  this.isHidden = true;
+              }
+          }
+      })
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+
+</html> 
