@@ -1,6 +1,6 @@
-let PlanComponent =  {
+let PlanPickerItemComponent =  {
 	template: `
-		<div class="plan" v-on:click="select" :class="{'plan-active': isSelected}">
+		<div class="plan-picker-item" v-on:click="select" :class="{'plan-picker-item-active': isSelected}">
 			<div class="description">
 				<span class="title">{{name}}</span>
 			</div>
@@ -29,10 +29,10 @@ let PlanComponent =  {
 let PlanPickerComponent = {
 	template: `
 		<div class="plans">
-			<plan v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></plan>
+			<plan-picker-item v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></plan-picker-item>
 		</div>`,
 	components: {
-		plan: PlanComponent,
+		'plan-picker-item': PlanPickerItemComponent,
 	},
 	data () {
 		return {
@@ -46,6 +46,10 @@ let PlanPickerComponent = {
 		}
 	}
 }
+
+Vue.component('page-layout', {
+	template: '#page-layout-template',
+}) 
 
 new Vue({
 	el: '#app',

@@ -10,11 +10,39 @@
 
 <body>
   <div id="app">
+
+    <page-layout>
+      <template v-slot:header>
+        <h1>Here might be a title</h1>
+      </template>
+
+      <p>This is the content of the page.</p>
+      <p>And another paragraph.</p>
+
+      <template v-slot:footer>
+        <p>Here is some contact info.</p>
+      </template>
+    </page-layout>
+
     <h1>Coffee Plans</h1>
     <h2>We travel the world to source the very best single origin coffee for you</h2>
 
       <plan-picker></plan-picker>
   </div>
+
+  <script type="text/x-template" id="page-layout-template">
+    <div>
+      <header>
+        <slot name="header">Default header</slot>
+      </header>
+      <main>
+        <slot>Default Text</slot>
+      </main>
+      <footer>
+        <slot name="footer">Default Footer</slot>
+      </footer>
+    </div>
+  </script>
 
   <script src="https://unpkg.com/vue"></script>
   <script src="app.js"></script>
