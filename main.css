@@ -4,7 +4,17 @@ body {
 
 .plan {
 	background-color: white;
+	border: 2px solid transparent;
 	padding: 1rem;
 	margin-bottom: 1rem;
 	width: auto;
+}
+
+.plan:hover {
+	border-color: coral;
+	cursor: pointer;
+}
+
+.plan-active {
+	border-color: teal;
 }
