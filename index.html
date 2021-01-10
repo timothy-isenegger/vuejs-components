@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VueJS Components Fundamentals</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>Coffee Plans</h1>
+    <h2>We travel the world to source the very best single origin coffee for you</h2>
+
+      <div class="plans">
+        <plan v-for="plan in plans" :name="plan"></plan>
+      </div>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+</html>
